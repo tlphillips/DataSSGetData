@@ -1,0 +1,22 @@
+Test()sapply(split(DT$pwgtp15,DT$SEX),mean)
+head(DT2)
+DT2[,mean(pwgtp15),by=SEX]
+tapply(DT2$pwgtp15,DT2$SEX,mean)
+mean(DT2[DT2$SEX==1,]$pwgtp15); mean(DT2[DT2$SEX==2,]$pwgtp15)
+sapply(split(DT2$pwgtp15,DT2$SEX),mean)
+mean(DT2$pwgtp15,by=DT2$SEX)
+rowMeans(DT2)[DT2$SEX==1]; rowMeans(DT2)[DT2$SEX==2]
+DT2[,mean(pwgtp15),by=SEX]
+tapply(DT2$pwgtp15,DT2$SEX,mean)
+mean(DT2[DT2$SEX==1,]$pwgtp15); mean(DT2[DT2$SEX==2,]$pwgtp15)
+sapply(split(DT2$pwgtp15,DT2$SEX),mean)
+system.time( replicate(1000, DT[,mean(pwgtp15),by=SEX] ) )
+system.time( replicate(1000, DT2[,mean(pwgtp15),by=SEX] ) )
+system.time( replicate(1000, DT2[,mean(pwgtp15),by=SEX] ) )
+system.time( replicate(1000, tapply(DT2$pwgtp15,DT2$SEX,mean) ) )
+system.time( replicate(1000, tapply(DT2$pwgtp15,DT2$SEX,mean) ) )
+system.time( replicate(1000, mean(DT2[DT2$SEX==1,]$pwgtp15); mean(DT2[DT2$SEX==2,]$pwgtp15) ) )
+system.time( replicate(1000, mean(DT2[DT2$SEX==1,]$pwgtp15) ) )
+system.time( replicate(1000, mean(DT2[DT2$SEX==2,]$pwgtp15) ) )
+system.time( replicate(1000, sapply(split(DT2$pwgtp15,DT2$SEX),mean) ) )
+sapply(split(DT2$pwgtp15,DT2$SEX),mean)
